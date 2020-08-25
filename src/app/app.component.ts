@@ -18,7 +18,6 @@ export class AppComponent {
     currHeight=290;
     currView = 4;
     duration=60;
-    groupName = '';
     startDayHour;
     endDayHour;
     buttonLabel = "Expanded View";
@@ -30,8 +29,6 @@ export class AppComponent {
         this.calcHeight();
         this.getAppointmentDat();
         this.getHours();
-        console.log("group name", this.groupName);
-        console.log("duration", this.duration);
     }
 
     getPriorityData(){
@@ -94,7 +91,6 @@ export class AppComponent {
         this.getAppointmentDat();
         this.getHours();
         this.cdr.detectChanges();
-        console.log("duration", this.duration);
       }
       // console.log("start",this.startDayHour);
       // console.log("end", this.endDayHour);
