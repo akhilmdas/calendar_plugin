@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ChangeDetectorRef } from '@angular/core';
 import {Priority, Resource, Appointment, Service} from './app.service';
 
 @Component({
@@ -17,17 +17,21 @@ export class AppComponent {
     height;
     currHeight=290;
     currView = 4;
+    duration=60;
+    groupName = '';
     startDayHour;
     endDayHour;
     buttonLabel = "Expanded View";
 
-    constructor(private service: Service) {
+    constructor(private service: Service,private cdr: ChangeDetectorRef) {
         
         this.resourcesData = service.getResources();
         this.getPriorityData();
         this.calcHeight();
         this.getAppointmentDat();
         this.getHours();
+        console.log("group name", this.groupName);
+        console.log("duration", this.duration);
     }
 
     getPriorityData(){
@@ -64,32 +68,36 @@ export class AppComponent {
     calcHeight() {
       this.height = this.count * this.currHeight;
     }
-    clicked(event){
-      // alert(event);
-    }
+    
     optionChanged(event){
       if(event.name === 'currentView'){
         if(event.value === 'Weekly'){
           this.currView = 1;
           this.currHeight = 180;
+          this.duration = 1440;
         }else if(event.value === 'Fortnightly'){
           this.currView = 2;
           this.currHeight = 180;
+          this.duration = 1440;
           // this.currHeight = 800;
         }else if(event.value === 'Monthly'){
           this.currView = 3;
           this.currHeight = 800;
+          this.duration = 1440;
         }else{
           this.currView = 4;
           this.currHeight = 290;
+          this.duration = 60;
         }
         this.getPriorityData();
         this.calcHeight();
         this.getAppointmentDat();
         this.getHours();
+        this.cdr.detectChanges();
+        console.log("duration", this.duration);
       }
-      console.log("start",this.startDayHour);
-      console.log("end", this.endDayHour);
+      // console.log("start",this.startDayHour);
+      // console.log("end", this.endDayHour);
 
     }
     changeView(){
