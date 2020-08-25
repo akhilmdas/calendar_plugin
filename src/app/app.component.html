@@ -115,6 +115,7 @@
     appointmentTemplate="appointmentTemplate"
     [crossScrollingEnabled]="true"
     [height]="height"
+
     (onOptionChanged)="optionChanged($event)">
     <div *dxTemplate="let model of 'appointmentTemplate'" style="padding: 5px;">
         <span><b>{{model.startDate | date:'shortTime'}} - {{model.endDate | date:'shortTime'}}</b></span><br>
@@ -126,7 +127,7 @@
         <span>Location: <b>Cherry Blossom</b></span><br>
         <span>Role: <b>Support Cash - ACC</b></span><br>
         <span><b>0/2</b> Clients in shift</span><br>
-        <span>Client Cost : <b>$0.00</b></span><br>
+        <!-- <span>Client Cost : <b>$0.00</b></span><br> -->
     </div>
     <dxi-view
         name="Daily"
@@ -138,11 +139,12 @@
     </dxi-view>
     <dxi-view
         name="Fortnightly"
-        type="timelineWeek">
+        type="timelineWeek"
+        [intervalCount]="2">
     </dxi-view>
     <dxi-view
         name="Monthly"
-        type="timelineWeek">
+        type="month" >
     </dxi-view>
     <dxi-resource
         fieldExpr="ownerId"
@@ -151,12 +153,12 @@
         label="Owner"
         [useColorAsDefault]="true"
     ></dxi-resource>
-    <dxi-resource
+    <!-- <dxi-resource
         fieldExpr="priority"
         [allowMultiple]="true"
         [dataSource]="prioritiesData"
         label="week"
         [useColorAsDefault]="true"
-    ></dxi-resource>
+    ></dxi-resource> -->
 </dx-scheduler>
 </div>

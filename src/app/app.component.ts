@@ -11,9 +11,9 @@ export class AppComponent {
   appointmentsData: Appointment[];
     resourcesData: Resource[];
     prioritiesData: Priority[];
-    currentDate: Date = new Date(2017, 4, 7);
+    currentDate: Date = new Date(2017, 4, 1);
     viewAll = false;
-    count=25;
+    count=26;
     height;
     currHeight=290;
     currView = 4;
@@ -74,7 +74,8 @@ export class AppComponent {
           this.currHeight = 180;
         }else if(event.value === 'Fortnightly'){
           this.currView = 2;
-          this.currHeight = 330;
+          this.currHeight = 180;
+          // this.currHeight = 800;
         }else if(event.value === 'Monthly'){
           this.currView = 3;
           this.currHeight = 800;
