@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/* .scheduler .dx-scheduler-work-space.dx-scheduler-timeline .dx-scrollable.dx-scheduler-date-table-scrollable,
+		.dx-scheduler-work-space.dx-scheduler-timeline .dx-scrollable.dx-scheduler-sidebar-scrollable {
+			padding-bottom: 50px;
+			margin-bottom: -50px;
+		}
+		.dx-scheduler-work-space.dx-scheduler-timeline-day .dx-scrollable.dx-scheduler-date-table-scrollable,
+		.dx-scheduler-work-space.dx-scheduler-timeline-day .dx-scrollable.dx-scheduler-sidebar-scrollable {
+			padding-bottom: 0;
+			margin-bottom: 0;
+		}		
+		.dx-scheduler-timeline .dx-scheduler-header-panel .dx-scheduler-header-row:last-child {
+			display: none;
+        }  */
+
+.scheduler .dx-scheduler-timeline .dx-scheduler-header-panel .dx-scheduler-header-row:last-child {
+    display: none;
+} 
+
+.dx-scheduler-work-space.dx-scheduler-timeline .dx-scrollable.dx-scheduler-date-table-scrollable,
+		.dx-scheduler-work-space.dx-scheduler-timeline .dx-scrollable.dx-scheduler-sidebar-scrollable {
+			padding-bottom: 50px;
+			margin-bottom: -50px;
+        }
+        .dx-scheduler-work-space.dx-scheduler-timeline-day .dx-scrollable.dx-scheduler-date-table-scrollable,
+		.dx-scheduler-work-space.dx-scheduler-timeline-day .dx-scrollable.dx-scheduler-sidebar-scrollable {
+			padding-bottom: 0;
+			margin-bottom: 0;
+		}	
+        
+.dx-scheduler-work-space.dx-scheduler-timeline-week .dx-scheduler-header-scrollable{
+    height: 51px !important;
+}

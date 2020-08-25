@@ -1,0 +1,61 @@
+.buttonDiv{
+    padding: 20px 0;;
+}
+
+.buttonDiv a{
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: aliceblue;
+    color: black;
+    cursor: pointer;
+}
+
+.buttonDiv a:hover{
+    background-color: rgb(206, 206, 206);
+}
+
+.scheduler{
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.dx-scheduler-cell-sizes-horizontal {
+    width: 50px !important;
+}
+
+.appnmnt{
+    height: 50px !important;
+}
+
+.dx-scheduler-header-panel-cell .dx-scheduler-header-panel-week-cell{
+    position: fixed !important;
+    left: 10px !important;
+}
+
+.dx-scheduler-header-panel-cell .dx-scheduler-cell-sizes-horizontal{
+    width:50px !important;
+}
+
+th{
+    width: 100px !important;
+}
+
+td{
+    width: 100px !important;
+}
+
+.searchBar{
+    padding: 15px;
+    text-align: right;
+    background-color: rgb(230, 230, 230);
+    margin: 5px 0;
+}
+
+.text-box{
+    padding: 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    width: 200px;
+    border: 1px solid gray;
+}

@@ -24,6 +24,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/devextreme/dist/css/dx.common.css",
+              "node_modules/devextreme/dist/css/dx.light.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -47,8 +49,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "5mb",
+                  "maximumError": "10mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -119,6 +121,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "calendar"
+    }
+  },
+  "defaultProject": "calendar",
+  "cli": {
+    "analytics": false
+  }
 }
