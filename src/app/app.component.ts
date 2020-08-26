@@ -1,5 +1,7 @@
 import { Component,ChangeDetectorRef } from '@angular/core';
 import {Priority, Resource, Appointment, Service} from './app.service';
+import * as $ from 'jquery' 
+
 
 @Component({
   selector: 'app-root',
@@ -30,6 +32,10 @@ export class AppComponent {
         this.getAppointmentDat();
         this.getHours();
     }
+
+     ngAfterViewInit(){ 
+      this.loopMonthView();
+     }
 
     getPriorityData(){
       if(this.currView == 1){
@@ -66,7 +72,7 @@ export class AppComponent {
       this.height = this.count * this.currHeight;
     }
     
-    optionChanged(event){
+    optionChanged(event){ 
       if(event.name === 'currentView'){
         if(event.value === 'Weekly'){
           this.currView = 1;
@@ -81,6 +87,7 @@ export class AppComponent {
           this.currView = 3;
           this.currHeight = 800;
           this.duration = 1440;
+          
         }else{
           this.currView = 4;
           this.currHeight = 290;
@@ -91,9 +98,12 @@ export class AppComponent {
         this.getAppointmentDat();
         this.getHours();
         this.cdr.detectChanges();
+        this.loopMonthView();
+      }else if(event.name === "currentDate"){
+        this.calcHeight();
+        this.loopMonthView();
       }
-      // console.log("start",this.startDayHour);
-      // console.log("end", this.endDayHour);
+     
 
     }
     changeView(){
@@ -103,5 +113,35 @@ export class AppComponent {
       }else{
         this.buttonLabel = "Expanded View"
       }
+    }
+
+    loopMonthView(){
+      let original_ht = this.height;
+      $(".dx-scheduler").height(original_ht);
+      if(this.currView == 3){
+        let dateArr = ['01','02'];
+        setTimeout(function(){
+          $(".dx-scheduler-date-table-row").each(function() {
+            let flag = false;
+            $.each(this.cells, function(){
+                const value = $(this).text();
+                if(dateArr.includes(value)){ 
+                  flag = true;
+                  let index = dateArr.indexOf(value);
+                  dateArr.splice(index, 1);
+                }
+            });
+            
+            if(!flag){
+              let newHt = $(this).height() - 200;
+              let schdulerHt =  $(".dx-scheduler").height() - newHt;
+              $(this).height(200);
+              $(".dx-scheduler").height(schdulerHt)
+            }
+          });
+        }, 2000);
+        
+      }
+      
     }
 }
