@@ -1,108 +1,20 @@
 
 <div [ngClass]="{'scheduler':currView != 4}">
-    <div class="searchBar">
-        <input type="text" class="text-box" placeholder="Search here..">
-    </div>
-    <!-- <div class="buttonDiv">
-        <a (click)="changeView()">{{buttonLabel}}</a>
-    </div> -->
-    <!-- <div *ngIf="viewAll">
-        <dx-scheduler
-            [dataSource]="appointmentsData"
-            currentView="timelineDay"
-            [firstDayOfWeek]="0"
-            [startDayHour]="00"
-            [endDayHour]="24"
-            [cellDuration]="60"
-            [groups]="['priority']"
-            [currentDate]="currentDate"
-            [maxAppointmentsPerCell]="count"
-            appointmentTemplate="appointmentTemplate"
-            [crossScrollingEnabled]="true"
-            [height]="height">
-            <div *dxTemplate="let model of 'appointmentTemplate'">
-                <span>{{model.name}}</span><br>
-                <span>{{model.text}}</span>
+    <div class="container">
+            <div class="week-btns">
+                <ng-container *ngIf="this.currView == 2">
+                    <button>Week 1</button>
+                    <button>Week 2</button>
+                </ng-container>
             </div>
-            <dxi-view
-                name="Daily"
-                type="timelineDay">
-            </dxi-view>
-            <dxi-view
-                name="Weekly"
-                type="timelineWeek">
-            </dxi-view>
-            <dxi-view
-                name="Fortnightly"
-                type="timelineWeek"
-                [intervalCount]="2">
-            </dxi-view>
-            <dxi-view
-                name="Monthly"
-                type="timelineMonth">
-            </dxi-view>
-            <dxi-resource
-                fieldExpr="ownerId"
-                [allowMultiple]="true"
-                [dataSource]="resourcesData"
-                label="Owner"
-                [useColorAsDefault]="true"
-            ></dxi-resource>
-        </dx-scheduler>
-    </div>
-    <div *ngIf="!viewAll">
-        <dx-scheduler
-            id="scheduler"
-            [dataSource]="appointmentsData"
-            currentView="timelineDay"
-            [firstDayOfWeek]="0"
-            [startDayHour]="00"
-            [endDayHour]="24"
-            [cellDuration]="60"
-            [groups]="['priority']"
-            [currentDate]="currentDate"
-            appointmentTemplate="appointmentTemplate"
-            (onOptionChanged)="clicked($event)"
-            crossScrollingEnabled="true"
-            [height]="600">
-            <div *dxTemplate="let model of 'appointmentTemplate'" class="appnmnt">
-                <span>{{model.name}}</span><br>
-                <span>{{model.text}}</span>
+            <div class="searchBar">
+                <input type="text" class="text-box" placeholder="Search here..">
             </div>
-            <dxi-view
-                name="Daily"
-                type="timelineDay">
-            </dxi-view>
-            <dxi-view
-                name="Weekly"
-                type="timelineWeek">
-            </dxi-view>
-            <dxi-view
-                name="Fortnightly"
-                type="timelineWeek"
-                [intervalCount]="2">
-            </dxi-view>
-            <dxi-view
-                name="Monthly"
-                type="timelineMonth">
-            </dxi-view>
-            <dxi-resource
-                fieldExpr="priority"
-                [allowMultiple]="false"
-                [dataSource]="prioritiesData"
-                label="Priority"
-            ></dxi-resource>
-            <dxi-resource
-                fieldExpr="ownerId"
-                [allowMultiple]="true"
-                [dataSource]="resourcesData"
-                label="Owner"
-                [useColorAsDefault]="true"
-            ></dxi-resource>
             
-        </dx-scheduler>
-    </div> -->
-    <dx-scheduler
+    </div>
+
+    <div #widgetsContent>
+        <dx-scheduler
     [dataSource]="appointmentsData"
     currentView="timelineDay"
     [firstDayOfWeek]="0"
@@ -161,4 +73,6 @@
         [useColorAsDefault]="true"
     ></dxi-resource> -->
 </dx-scheduler>
+    </div>
+   
 </div>
