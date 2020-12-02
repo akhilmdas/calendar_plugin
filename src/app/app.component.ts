@@ -70,6 +70,8 @@ export class AppComponent {
 
     calcHeight() {
       this.height = this.count * this.currHeight;
+      let original_ht = this.height; 
+      $(".dx-scheduler").height(original_ht);
     }
     
     optionChanged(event){ 
@@ -87,6 +89,7 @@ export class AppComponent {
           this.currView = 3;
           this.currHeight = 800;
           this.duration = 1440;
+          this.loopMonthView();
           
         }else{
           this.currView = 4;
@@ -98,7 +101,7 @@ export class AppComponent {
         this.getAppointmentDat();
         this.getHours();
         this.cdr.detectChanges();
-        this.loopMonthView();
+        
       }else if(event.name === "currentDate"){
         this.calcHeight();
         this.loopMonthView();
@@ -139,7 +142,7 @@ export class AppComponent {
               $(".dx-scheduler").height(schdulerHt)
             }
           });
-        }, 2000);
+        }, 1000);
         
       }
       
